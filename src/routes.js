@@ -1,3 +1,4 @@
+const { Router } = require("express")
 const express = require("express")
 const routes = express.Router()
 
@@ -6,11 +7,11 @@ const TopicoController = require("./controllers/TopicoController")
 const UsuarioController = require("./controllers/UsuarioController")
 
 //Publicacoes
-CRUD("publicacoes", PublicacaoController)
+CRUD("publicacoes", PublicacaoController);
 //Topicos
-CRUD("topicos", TopicoController)
+CRUD("topicos", TopicoController);
 //Usuarios
-CRUD("usuarios", UsuarioController)
+CRUD("usuarios", UsuarioController);
 
 function CRUD(name, controller) {
     //index (mostrar tudo)
@@ -23,7 +24,6 @@ function CRUD(name, controller) {
     routes.delete("/" + name + "/:id", controller.destroy);
     //atualizar
     routes.put("/" + name + "/:id", controller.update);
-
-    module.exports = routes
 }
 
+module.exports = routes

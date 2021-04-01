@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate')
 
 const TopicoSchema = new mongoose.Schema({
     title: {
@@ -18,5 +19,7 @@ const TopicoSchema = new mongoose.Schema({
         default: Date.now,
     }
 })
+
+TopicoSchema.plugin(mongoosePaginate)
 
 module.exports = mongoose.model('Topico', TopicoSchema)
